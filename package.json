@@ -11,11 +11,15 @@
     "exec-sync": "^0.1.6",
     "gulp": "^3.9.0",
     "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-nodemon": "^2.0.3",
     "gulp-sass": "^2.0.1",
     "gulp-shell": "^0.4.2",
     "gulp-sourcemaps": "^1.5.2",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.0",
     "strip-json-comments": "^1.0.2"
+  },
+  "dependencies": {
+    "express": "^4.12.4"
   }
 }
