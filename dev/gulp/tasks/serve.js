@@ -12,7 +12,7 @@ gulp.task('serve', ['build:dev'], function () {
   browserSync({
     server: {
       baseDir: "src/client",
-      index: "views/index.html"
+      index: "index.html"
     }
   });
 
