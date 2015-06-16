@@ -1,0 +1,8 @@
+{
+  "name": "leanci-manager",
+  "version": "0.0.1",
+  "description": "LeanCI Manager",
+  "main": "src/server/js/app.js",
+  "author": "Mikhail Yurasov <me@yurasov.me>",
+  "license": "GPLv3"
+}
