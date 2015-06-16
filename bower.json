@@ -1,0 +1,12 @@
+{
+  "name": "LeanCI-Client",
+  "version": "1.0.0",
+  "authors": [
+    "Mikhail Yurasov <me@yurasov.me>"
+  ],
+  "license": "GPLv3",
+  "dependencies": {
+    "angular-material": "0.9.8",
+    "angular": "1.4.0"
+  }
+}
