@@ -15,7 +15,7 @@ function setEnvironment(environment) {
 
 // set environment to 'development'
 gulp.task('set-environment:development', function () {
-  setEnvironment('developments');
+  setEnvironment('development');
 });
 
 // set environment to 'production'
