@@ -3,6 +3,8 @@
  * @copyright 2015 Mikhail Yurasov <me@yurasov.me>
  **/
 
+'use strict';
+
 var gulp = require('gulp');
 var fs = require('fs');
 var config = require('../config');
