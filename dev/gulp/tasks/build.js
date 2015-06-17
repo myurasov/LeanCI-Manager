@@ -6,23 +6,23 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
-// build for the dev environment
-gulp.task('build:dev', function (callback) {
+// build for the development environment
+gulp.task('build:development', function (callback) {
   runSequence(
     'cleanup',
-    'set-env:dev',
-    'update-rev',
+    'set-environment:development',
+    'update-revision',
     'compile-styles',
     callback
   );
 });
 
 // build for production environment
-gulp.task('build:prod', function (callback) {
+gulp.task('build:production', function (callback) {
   runSequence(
     'cleanup',
-    'set-env:prod',
-    'update-rev',
+    'set-environment:production',
+    'update-revision',
     'compile-styles',
     callback
   );

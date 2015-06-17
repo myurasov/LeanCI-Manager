@@ -5,4 +5,4 @@
 
 var gulp = require('gulp');
 
-gulp.task('serve', ['build:dev', 'serve-server', 'serve-client']);
+gulp.task('serve', ['build:development', 'serve-server', 'serve-client']);
