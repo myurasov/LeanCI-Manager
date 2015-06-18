@@ -7,6 +7,8 @@
 
 var express = require('express');
 var fs = require('fs');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
 
 // create app
 var app = express();
@@ -24,6 +26,11 @@ if (fs.existsSync(app.get('paths.root') + '/settings.json')) {
 } else {
   app.set('local_settings', {});
 }
+
+// middleware setup
+app.use(morgan('dev')); // logging
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // listen
 var server = app.listen(app.get('port'), function () {
