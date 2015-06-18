@@ -32,6 +32,9 @@ app.use(morgan('dev')); // logging
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+// routing
+app.use('/', require('./routes/index'));
+
 // listen
 var server = app.listen(app.get('port'), function () {
   console.log(
