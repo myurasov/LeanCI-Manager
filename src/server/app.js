@@ -31,7 +31,7 @@ if (fs.existsSync(app.get('paths.root') + '/settings.json')) {
 app.use(morgan('dev')); // logging
 app.use(bodyParser.text());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // routing
 app.use('/', require('./routes/index'));
