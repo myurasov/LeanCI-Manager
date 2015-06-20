@@ -5,7 +5,7 @@
 
 'use strict';
 
-angular
+var app = angular
   .module('leanci-manager-client', ['ui.router'])
 
   .config(function ($urlRouterProvider, $stateProvider) {
@@ -15,15 +15,18 @@ angular
     $stateProvider
 
       .state('index', {
-        url  : '/',
-        views: {
-          content: {
-            template  : '-',
-            controller: function () {
-            }
-          }
-        }
-      });
+        url       : '/',
+        template  : '-',
+        controller: null
+      })
+
+      .state('setup', {
+        url        : '/setup',
+        templateUrl: 'views/setup.html',
+        controller : 'SetupController'
+      })
+
+    ;
 
   }
 );
