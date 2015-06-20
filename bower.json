@@ -6,6 +6,7 @@
   "license": "GPLv3",
   "dependencies": {
     "angular-material": "0.10.0",
-    "angular": "1.4.1"
+    "angular": "1.4.1",
+    "ui-router": "~0.2.15"
   }
 }
