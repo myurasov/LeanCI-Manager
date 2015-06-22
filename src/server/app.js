@@ -49,9 +49,11 @@ app.use(function (err, req, res, next) {
   } else if (err instanceof Exception /* Exception */) {
     res.status(500);
     res.json({error: err.code, message: err.message});
-  } else /* Error object */ {
+  } else if (err instanceof Error) /* Error object */ {
     res.status(500);
     res.json({error: err.name, message: err.message});
+  } else {
+    next(err);
   }
 });
 
