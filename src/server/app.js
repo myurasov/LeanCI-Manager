@@ -8,6 +8,7 @@ var express = require('express');
 var fs = require('fs');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 // create app
 var app = express();
@@ -28,6 +29,7 @@ if (fs.existsSync(app.get('paths.root') + '/settings.json')) {
 
 // middleware setup
 app.use(morgan('dev')); // logging
+app.use(cors()); // cross origin resource sharing
 app.use(bodyParser.text());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
