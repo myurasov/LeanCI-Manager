@@ -33,7 +33,7 @@ app.controller('SetupController', function ($scope, $http, $controller, api_endp
    */
   $scope.submit = function () {
     $scope.working++;
-    $http.post(api_endpoint + '/users',{})
+    $http.post(api_endpoint + '/users', $scope.input.user)
       .then(function ok() {
 
       }, function err(e) {
