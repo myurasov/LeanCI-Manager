@@ -3,3 +3,11 @@
  */
 
 $colorGrayText: gray;
+
+// alerts - erro
+$colorAlertErrorText: #F44336;
+$colorAlertErrorBg: lighten($colorAlertErrorText, 35%);
+
+// alerts - success
+$colorAlertSuccessText: #01A30F;
+$colorAlertSuccessBg: lighten($colorAlertSuccessText, 55%);

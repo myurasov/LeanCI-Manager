@@ -6,7 +6,25 @@
   padding: 20px;
 }
 
-.help {
-  color: $colorGrayText;
-  margin-bottom: 5px;
+form {
+  .help {
+    color: $colorGrayText;
+    margin-bottom: 5px;
+  }
+
+  .alerts * {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 2px;
+
+    &[type=error] {
+      color: $colorAlertErrorText;
+      background-color: $colorAlertErrorBg;
+    }
+
+    &[type=success] {
+      color: $colorAlertSuccessText;
+      background-color: $colorAlertSuccessBg;
+    }
+  }
 }
