@@ -23,10 +23,10 @@ require('./config')(app);
 require('./config.' + app.get('env'))(app);
 
 // read local settings (unique for the current installation)
-if (fs.existsSync(app.get('paths.root') + '/settings.json')) {
-  app.set('local_settings', require(app.get('paths.root') + '/settings.json'));
+if (fs.existsSync(app.get('paths.root') + '/data/settings.json')) {
+  app.set('settings', require(app.get('paths.root') + '/data/settings.json'));
 } else {
-  app.set('local_settings', {});
+  app.set('settings', {});
 }
 
 // middleware setup
