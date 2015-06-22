@@ -54,6 +54,13 @@
 
         </div>
 
+        <!-- alerts -->
+        <div ng-if="alerts" class="alerts">
+          <div ng-repeat="alert in alerts" type="{{ alert.type }}" close="closeAlert($index)">
+            {{ alert.message }}
+          </div>
+        </div>
+
         <!-- submit -->
         <div layout="row" layout-align="center">
           <md-button class="md-raised md-primary" ng-disabled="form.$invalid || working" >Submit</md-button>
