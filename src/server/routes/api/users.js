@@ -14,7 +14,16 @@ router.post('/', createItem);
  * PUT /:id
  */
 function createItem(req, res) {
-  throw new HttpNotImplementedException();
+
+  var userModel = req.app.get('models.user')();
+
+  userModel.sync({force: true}).then(function () {
+    return userModel.create({
+      email: 'test@email.com'
+    });
+  });
+
+  res.json({});
 }
 
 module.exports = router;

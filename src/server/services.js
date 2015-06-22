@@ -5,25 +5,22 @@
 'use strict';
 
 var Sequelize = require('Sequelize');
+var utils = require('./utils');
 
 module.exports = function (app) {
 
-  // services registry
-  var services = {};
-
-  // defince service in the services registry
-  // service factory method is called only once
-  function defineService(name, factoryMethod) {
-    app.set(name, function () {
-      if (!services[name]) {
-        services[name] = factoryMethod();
-      }
-      return services[name];
-    });
-  }
-
   // Sequelize instance
-  defineService('db', function () {
-    return new Sequelize(app.get('db.connection'));
+  utils.defineService(app, 'services.sequelize', function () {
+    return new Sequelize(null, null, null, {
+      dialect: 'sqlite',
+      storage: app.get('sqlite_db')
+    });
   });
+
+  // models
+
+  utils.defineService(app, 'models.user', function () {
+    return require('./models/User')(app.get('services.sequelize')());
+  });
+
 };
