@@ -57,6 +57,9 @@ app.use(function (err, req, res, next) {
   }
 });
 
+// include services
+require('./services')(app);
+
 // listen
 var server = app.listen(app.get('port'), function () {
   console.log(
