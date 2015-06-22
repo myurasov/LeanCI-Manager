@@ -1,36 +1,65 @@
 <div class="pageSetup" layout="row" layout-align-gt-sm="center center">
   <div class="md-whiteframe-z5 setupFrame">
 
+    <!-- toolbar -->
     <md-toolbar class="md-primary md-default-theme">
       <div class="md-toolbar-tools">
         <h3>Create Primary User</h3>
       </div>
     </md-toolbar>
 
+    <!-- content -->
     <md-content layout-padding>
+      <form name="form">
 
       <div class="help">
         This user will have an administrative access and will be able to create other users and manage settings.
       </div>
 
-      <md-input-container>
-        <label>Email</label>
-        <input ng-model="user.email" type="email" name="email">
-      </md-input-container>
-      <div layout layout-sm="column">
-        <md-input-container flex>
-          <label>Password</label>
-          <input ng-model="user.password" type="password" name="password">
+        <!-- email -->
+        <md-input-container>
+          <label>Email</label>
+          <input
+            ng-model="input.user.email"
+            type="email"
+            name="email"
+            ng-required="true"
+            ng-pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/i"
+            >
         </md-input-container>
-        <md-input-container flex>
-          <label>Confirmation</label>
-          <input ng-model="passwordConfirmation" type="password">
-        </md-input-container>
-      </div>
-      <div layout="row" layout-align="center">
-        <md-button class="md-raised md-primary">Submit</md-button>
-      </div>
-    </md-content>
 
+        <div layout layout-sm="column">
+
+          <!-- password -->
+          <md-input-container flex>
+            <label>Password</label>
+            <input
+              ng-model="input.user.password"
+              type="password"
+              name="input_user_password"
+              ng-required="true">
+          </md-input-container>
+
+          <!-- password confirmation -->
+          <md-input-container flex>
+            <label>Confirmation</label>
+            <input
+              ng-model="input.passwordConfirmation"
+              type="password"
+              name="input_passwordConfirmation"
+              ng-required="true"
+              password-verify="input.user.password"
+              >
+          </md-input-container>
+
+        </div>
+
+        <!-- submit -->
+        <div layout="row" layout-align="center">
+          <md-button class="md-raised md-primary" ng-disabled="form.$invalid || working" >Submit</md-button>
+        </div>
+
+      </form>
+    </md-content>
   </div>
 </div>

@@ -4,8 +4,18 @@
 
 'use strict';
 
-app.controller('SetupController', function ($scope) {
+app.controller('SetupController', function ($scope, $http) {
 
-  $scope.something = (new Date()).toString();
+  // # of async processes working
+  $scope.working = 0;
+
+  $scope.input = {
+    user: {
+      //email: 'me@yurasov.me',
+      //password: 'passw123'
+    },
+    //passwordConfirmation: 'passw123'
+  };
+
 
 });
