@@ -1,3 +1,7 @@
+/**
+ * Setup contyroller
+ */
+
 'use strict';
 
 app.controller('SetupController', function ($scope) {

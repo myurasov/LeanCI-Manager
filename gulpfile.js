@@ -1,6 +1,5 @@
 /**
  * Main gulpfile, see tasks in dev/gulp/tasks
- * @copyright 2015 Mikhail Yurasov <me@yurasov.me>
  */
 
 'use strict';

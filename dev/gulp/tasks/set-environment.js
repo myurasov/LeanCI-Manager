@@ -1,6 +1,5 @@
 /**
  * Set environment (and write it to relevant files)
- * @copyright 2015 Mikhail Yurasov <me@yurasov.me>
  **/
 
 'use strict';
