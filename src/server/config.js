@@ -13,4 +13,6 @@ module.exports = function (app) {
   // network settings
   app.set('port', 12345);
 
+  // database settings
+  app.set('db.connection', 'sqlite://leanci.db');
 };
