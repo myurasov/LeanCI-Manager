@@ -4,7 +4,7 @@
 
 'use strict';
 
-app.controller('SetupController', function ($scope, $http, $controller) {
+app.controller('SetupController', function ($scope, $http, $controller, api_endpoint) {
 
   // alerts
   $controller('AlertsTrait', {$scope: $scope});
@@ -33,7 +33,7 @@ app.controller('SetupController', function ($scope, $http, $controller) {
    */
   $scope.submit = function () {
     $scope.working++;
-    $http.post('http://localhost:12345/api/users',{})
+    $http.post(api_endpoint + '/users',{})
       .then(function ok() {
 
       }, function err(e) {
