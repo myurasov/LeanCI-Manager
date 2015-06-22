@@ -60,6 +60,10 @@ app.use(function (err, req, res, next) {
 // include services
 require('./services')(app);
 
+// initialize database layer
+app.get('models.user')();
+app.get('services.sequelize')().sync();
+
 // listen
 var server = app.listen(app.get('port'), function () {
   console.log(
