@@ -14,15 +14,17 @@ router.post('/', createItem);
  * PUT /:id
  */
 function createItem(req, res) {
-
   var userModel = req.app.get('models.user')();
 
-  var u =  userModel.create({
+  userModel.create({
     email: 'test@email.com',
     password: '248rujsdn'
+  }).catch(function (e) {
+    // return error response
+    res.status(500);
+    res.json({message: e.message});
   });
 
-  res.json({});
 }
 
 module.exports = router;
