@@ -1,9 +1,17 @@
-.pageSetup {
+/**
+ * Styles for 
+ */
 
-  height: 100vh;
+
+.pageSetup {
+  min-height: 100vh;
 
   .setupFrame {
-    width: 600px;
-  }
+    width: 100%;
+    max-width: 500px;
 
+    @include screen_sm() {
+      max-width: none;
+    }
+  }
 }
