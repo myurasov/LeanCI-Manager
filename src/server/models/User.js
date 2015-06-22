@@ -23,7 +23,7 @@ module.exports = function User(sequelize) {
 
       validate: {
         // email regex
-        is: '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/i'
+        is: /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/i
       }
     },
 
