@@ -5,28 +5,4 @@
 
 'use strict';
 
-var app = angular
-  .module('leanci-manager-client', ['ui.router'])
-
-  .config(function ($urlRouterProvider, $stateProvider) {
-
-    $urlRouterProvider.otherwise('/');
-
-    $stateProvider
-
-      .state('index', {
-        url       : '/',
-        template  : '-',
-        controller: null
-      })
-
-      .state('setup', {
-        url        : '/setup',
-        templateUrl: 'views/setup.html',
-        controller : 'SetupController'
-      })
-
-    ;
-
-  }
-);
+var app = angular.module('leanci-manager-client', ['ui.router', 'ngMaterial']);
