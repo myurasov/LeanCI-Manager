@@ -1,0 +1,54 @@
+/**
+ * Mixins
+ * @copyright 2015 Mikhail Yurasov <me@yurasov.me>
+ */
+
+// Responsive layout utilities
+// Based on: https://github.com/angular/material/blob/master/src/core/style/layout.scss
+
+$layoutBreakpointSm: 600px;
+$layoutBreakpointMd: 960px;
+$layoutBreakpointLg: 1200px;
+
+// SMALL SCREEN
+
+@mixin screen_sm() {
+  @media (max-width: $layoutBreakpointSm - 1) {
+    @content;
+  }
+}
+
+// BIGGER THAN SMALL SCREEN
+@mixin screen_gt_sm() {
+  @media (min-width: $layoutBreakpointSm) {
+    @content;
+  }
+}
+
+// MEDIUM SCREEN
+@mixin screen_md() {
+  @media (min-width: $layoutBreakpointSm) and (max-width: $layoutBreakpointMd - 1) {
+    @content;
+  }
+}
+
+// BIGGER THAN MEDIUM SCREEN
+@mixin screen_gt_md() {
+  @media (min-width: $layoutBreakpointMd) {
+    @content;
+  }
+}
+
+// LARGE SCREEN
+@mixin screen_lg() {
+  @media (min-width: $layoutBreakpointMd) and (max-width: $layoutBreakpointLg - 1) {
+    @content;
+  }
+}
+
+// BIGGER THAN LARGE SCREEN
+@mixin screen_gt_lg() {
+  @media (min-width: $layoutBreakpointLg) {
+    @content;
+  }
+}
