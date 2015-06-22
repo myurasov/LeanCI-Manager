@@ -5,14 +5,16 @@
 'use strict';
 
 var Sequelize = require('Sequelize');
+var bcrypt = require('bcrypt');
 
 module.exports = function User(sequelize) {
   return sequelize.define('user', {
 
+    // email
     email: {
       type: Sequelize.STRING,
-      //allowNull: false,
-      //unique: true,
+      allowNull: false,
+      unique: true,
 
       // trim, lowcase
       set: function (val) {
@@ -25,16 +27,21 @@ module.exports = function User(sequelize) {
       }
     },
 
+    // password hash
     passwordHash: {
       type: Sequelize.STRING,
-      //allowNull: false
+      allowNull: false
     }
 
   }, {
     setterMethods: {
 
+      // generate salted hash
+      // see: https://github.com/ncb000gt/node.bcrypt.js#sync
       password: function (val) {
-        console.log('setPassword', val);
+        var salt = bcrypt.genSaltSync(10);
+        var hash = bcrypt.hashSync('B4c0/\/', salt);
+        this.setDataValue('passwordHash', hash);
       }
 
     }
