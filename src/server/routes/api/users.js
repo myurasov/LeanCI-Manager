@@ -17,10 +17,9 @@ function createItem(req, res) {
 
   var userModel = req.app.get('models.user')();
 
-  userModel.sync({force: true}).then(function () {
-    return userModel.create({
-      email: 'test@email.com'
-    });
+  var u =  userModel.create({
+    email: 'test@email.com',
+    password: '248rujsdn'
   });
 
   res.json({});
