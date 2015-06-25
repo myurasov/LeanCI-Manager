@@ -5,22 +5,27 @@
 'use strict';
 
 var Sequelize = require('Sequelize');
-var utils = require('./utils');
+var defineService = require('./lib/define-service');
 
 module.exports = function (app) {
 
+  var service = defineService(app, 'services');
+  var model = defineService(app, 'models');
+
   // Sequelize instance
-  utils.defineService(app, 'services.sequelize', function () {
+  service('sequelize', function () {
     return new Sequelize(null, null, null, {
       dialect: 'sqlite',
-      storage: app.get('sqlite_db')
+      storage: app.get('sequelize.db')
     });
   });
 
   // models
-
-  utils.defineService(app, 'models.user', function () {
-    return require('./models/User')(app.get('services.sequelize')());
+  model('User', function () {
+    return require('./models/User')(app.get('services').sequelize);
   });
 
+  // load models
+  /* jshint -W030 */
+  app.get('models').User;
 };

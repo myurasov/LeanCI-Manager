@@ -13,12 +13,13 @@ router.post('/', createItem);
  * POST /
  */
 function createItem(req, res) {
-  var userModel = req.app.get('models.user')();
+  var app = req.app;
+  var User = app.get('models').User;
   var input = req.body;
 
   // create user
 
-  userModel.create(input)
+  User.create(input)
 
     .then(function (e) {
       var data = e.dataValues;
