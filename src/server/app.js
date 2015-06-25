@@ -19,6 +19,7 @@ var app = express();
 
 // read current environment
 app.set('env', fs.readFileSync(__dirname + '/../../environment').toString().trim());
+process.env.NODE_ENV = app.get('env');
 
 // configure app
 require('./config')(app);

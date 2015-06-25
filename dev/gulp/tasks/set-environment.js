@@ -9,7 +9,10 @@ var fs = require('fs');
 var config = require('../config');
 
 function setEnvironment(environment) {
+  // save environment
   fs.writeFileSync(config.paths.root + '/environment', environment);
+  // set NODE_ENV
+  process.env.NODE_ENV = environment;
 }
 
 // set environment to 'development'
