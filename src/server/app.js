@@ -9,8 +9,10 @@ var fs = require('fs');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var HttpException = require('./exceptions/HttpException');
 var Exception = require('./exceptions/Exception');
+var HttpException = require('./exceptions/HttpException');
+var HttpUnauthorizedException = require('./exceptions/HttpUnauthorizedException');
+var cookieParser = require('cookie-parser');
 
 // create app
 var app = express();
@@ -50,7 +52,11 @@ app.use(function logErrors(err, req, res, next) {
 
 // handle errors and convert them to JSON response
 app.use(function (err, req, res, next) {
-  if (err instanceof HttpException /* HTTPException */) {
+  if (err instanceof HttpUnauthorizedException /* HttpUnauthorizedException */) {
+    res.status(err.code);
+    res.append('WWW-Authenticate', 'Bearer');
+    res.json({error: err.code, message: err.message});
+  } else if (err instanceof HttpException /* HTTPException */) {
     res.status(err.code);
     res.json({error: err.code, message: err.message});
   } else if (err instanceof Exception /* Exception */) {
