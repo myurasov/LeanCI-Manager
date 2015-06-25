@@ -41,6 +41,12 @@ app.use('/', require('./routes/index'));
 app.use('/api/settings', require('./routes/api/settings'));
 app.use('/api/users', require('./routes/api/users'));
 
+// log errors to console
+app.use(function logErrors(err, req, res, next) {
+  console.error(err.stack);
+  next(err);
+});
+
 // handle errors and convert them to JSON response
 app.use(function (err, req, res, next) {
   if (err instanceof HttpException /* HTTPException */) {
