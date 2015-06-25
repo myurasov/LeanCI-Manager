@@ -5,7 +5,7 @@
 
 'use strict';
 
-app.factory('Auth', function ($window, $injector, $timeout, APIEndpoint, $rootScope, $q) {
+app.factory('Auth', function ($window, $injector, $timeout, api_endpoint, $rootScope, $q) {
 
   var tokenKey = 'leanci_auth_token';
   var userKey = 'leanci_user';
@@ -93,7 +93,7 @@ app.factory('Auth', function ($window, $injector, $timeout, APIEndpoint, $rootSc
 
       } else if (!user) {
 
-        $injector.get('$http').get(APIEndpoint + '/accounts/current')
+        $injector.get('$http').get(api_endpoint + '/accounts/current')
 
           .then(function ok(e) {
             user = e.data;
