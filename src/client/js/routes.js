@@ -11,11 +11,12 @@ app
 
     $stateProvider
 
-      .state('index', {
+      .state('home', {
         url  : '/',
         views: {
           'content': {
-            template: '-'
+            templateUrl: 'views/home.html',
+            controller: 'HomeController'
           }
         }
       })
