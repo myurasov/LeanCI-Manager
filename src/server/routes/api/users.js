@@ -17,21 +17,35 @@ function createItem(req, res) {
   var User = app.get('models').User;
   var input = req.body;
 
-  // create user
+  // check access
+  User.count().then(function (count) {
 
-  User.create(input)
-
-    .then(function (e) {
-      var data = e.dataValues;
-      delete data.passwordHash;
-      res.json(data);
-    })
-
-    .catch(function (e) {
+    if (count !== 0) {
       // return error response
-      res.status(500);
-      res.json({message: e.message});
-    });
+      res.status(403 /* forbidden */);
+      res.json({message: 'Primary user already exists'});
+    }
+
+    // create user
+    input.isAdmin = true;
+    var user = User.build(input);
+
+    // save user
+    user.save()
+
+      .then(function (e) {
+        var data = e.dataValues;
+        // remove password hash from response
+        delete data.passwordHash;
+        res.json(data);
+      })
+
+      .catch(function (e) {
+        // return error response
+        res.status(500);
+        res.json({message: e.message});
+      });
+  });
 
 }
 

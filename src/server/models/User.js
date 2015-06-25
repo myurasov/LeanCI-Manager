@@ -27,11 +27,14 @@ module.exports = function User(sequelize) {
       }
     },
 
-    // password hash
+    // passwordHash
     passwordHash: {
       type: Sequelize.STRING,
       allowNull: false
-    }
+    },
+
+    // isAdmin
+    isAdmin: Sequelize.BOOLEAN
 
   }, {
     setterMethods: {
