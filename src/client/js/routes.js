@@ -13,14 +13,21 @@ app
 
       .state('index', {
         url       : '/',
-        template  : '-',
-        controller: null
+        views: {
+          'content': {
+            template: '-'
+          }
+        }
       })
 
       .state('setup', {
         url        : '/setup',
-        templateUrl: 'views/setup.html',
-        controller : 'SetupController'
+        views: {
+          'content': {
+            templateUrl: 'views/setup.html',
+            controller : 'SetupController'
+          }
+        }
       })
 
     ;
