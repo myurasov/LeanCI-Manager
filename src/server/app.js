@@ -9,9 +9,6 @@ var fs = require('fs');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var Exception = require('./exceptions/Exception');
-var HttpException = require('./exceptions/HttpException');
-var HttpUnauthorizedException = require('./exceptions/HttpUnauthorizedException');
 var cookieParser = require('cookie-parser');
 
 // create app
@@ -48,33 +45,10 @@ app.use('/', require('./routes/index'));
 app.use('/api/settings', require('./routes/api/settings'));
 app.use('/api/users', require('./routes/api/users'));
 
-// log errors to console
-app.use(function logErrors(err, req, res, next) {
-  console.error(err.stack);
-  next(err);
-});
+// error handling
+require('./lib/errors')(app);
 
-// handle errors and convert them to JSON response
-app.use(function (err, req, res, next) {
-  if (err instanceof HttpUnauthorizedException /* HttpUnauthorizedException */) {
-    res.status(err.code);
-    res.append('WWW-Authenticate', 'Bearer');
-    res.json({error: err.code, message: err.message});
-  } else if (err instanceof HttpException /* HTTPException */) {
-    res.status(err.code);
-    res.json({error: err.code, message: err.message});
-  } else if (err instanceof Exception /* Exception */) {
-    res.status(500);
-    res.json({error: err.code, message: err.message});
-  } else if (err instanceof Error) /* Error object */ {
-    res.status(500);
-    res.json({error: err.name, message: err.message});
-  } else {
-    next(err);
-  }
-});
-
-// include services
+// configure services
 require('./services')(app);
 
 // initialize database
