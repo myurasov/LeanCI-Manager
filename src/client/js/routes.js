@@ -12,7 +12,7 @@ app
     $stateProvider
 
       .state('index', {
-        url       : '/',
+        url  : '/',
         views: {
           'content': {
             template: '-'
@@ -21,7 +21,7 @@ app
       })
 
       .state('setup', {
-        url        : '/setup',
+        url  : '/setup',
         views: {
           'content': {
             templateUrl: 'views/setup.html',
