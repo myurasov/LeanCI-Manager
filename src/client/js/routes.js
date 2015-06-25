@@ -31,6 +31,15 @@ app
         }
       })
 
+      .state('login', {
+        url  : '/login',
+        views: {
+          'content': {
+            templateUrl: 'views/login.html',
+            controller : 'LoginController'
+          }
+        }
+      })
     ;
 
   });
