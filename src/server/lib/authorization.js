@@ -5,7 +5,7 @@
 'use strict';
 
 var jwt = require('jsonwebtoken');
-var HttpUnauthorizedException = require('./exceptions/HttpUnauthorizedException');
+var HttpUnauthorizedException = require('../exceptions/HttpUnauthorizedException');
 
 module.exports = function (app) {
 

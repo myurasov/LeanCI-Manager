@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 // authorization
-require('./authorization')(app);
+require('./lib/authorization')(app);
 
 // routing
 app.use('/', require('./routes/index'));
