@@ -4,13 +4,10 @@
 
 'use strict';
 
-app.controller('HomeController', function ($scope) {
+app.controller('HomeController', function ($scope, $state, Auth) {
 
-  initScope();
+  Auth.check(/* goToLogin */ true).then(/* authenticated */ function () {
+    alert("Authenticated");
+  });
 
-  /**
-   * Initialize scope
-   */
-  function initScope() {
-  }
 });
