@@ -35,6 +35,7 @@ app.use(cors()); // cross origin resource sharing
 app.use(bodyParser.text());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
 
 // routing
 app.use('/', require('./routes/index'));
