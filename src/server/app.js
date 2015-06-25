@@ -22,8 +22,8 @@ app.set('env', fs.readFileSync(__dirname + '/../../environment').toString().trim
 process.env.NODE_ENV = app.get('env');
 
 // configure app
-require('./config')(app);
-require('./config.' + app.get('env'))(app);
+require('./config/config')(app);
+require('./config/config.' + app.get('env'))(app);
 
 // read local settings (unique for the current installation)
 if (fs.existsSync(app.get('paths.root') + '/data/settings.json')) {
