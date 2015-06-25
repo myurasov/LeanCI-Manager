@@ -29,6 +29,9 @@ module.exports = function (app) {
       // decode token
       try {
         var decoded = jwt.verify(token, secret);
+
+        // todo: add user to params
+
       } catch (err) {
         throw new HttpUnauthorizedException(err.toString());
       }
