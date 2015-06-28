@@ -15,7 +15,7 @@ app
         url  : '/',
         views: {
           '': {
-            templateUrl: 'views/home.html',
+            templateUrl: 'views/layout.html',
             controller: 'HomeController'
           }
         }
