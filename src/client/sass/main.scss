@@ -2,6 +2,12 @@
  * App styles
  */
 
+// angular material
+@import "../vendor/bower_components/angular-material/angular-material";
+
+// roboto font
+@import "vendor/bower_components/roboto-fontface/css/roboto-fontface.css";
+
 @import "_revision";
 @import "variables";
 @import "mixins";
