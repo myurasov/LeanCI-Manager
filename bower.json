@@ -5,9 +5,12 @@
   ],
   "license": "GPLv3",
   "dependencies": {
-    "angular-material": "0.10.0",
     "angular": "1.4.1",
     "ui-router": "~0.2.15",
-    "roboto-fontface": "~0.4.2"
+    "roboto-fontface": "~0.4.2",
+    "angular-material": "~0.10.0"
+  },
+  "resolutions": {
+    "angular-material": "master"
   }
 }
